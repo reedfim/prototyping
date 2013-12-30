@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src='/javascripts/cssrule.js'></script>
+    <script type="text/javascript" src='/javascripts/jquery.rulecss.js'></script>
+</head>
+<body>
+    <button class="click">실행</button>
+    <h1>H1입니다.</h1>
+    <p class="test">바이 짜이찌엔</p>
+    <button class="btn">사요나라</button>
+<script>
+    $(function(){
+        $('button').ruleCSS({
+            'border' : '2px solid #aaa',
+            'font-size' : '15px'
+        });
+        $('.click').on('click', function(){
+            $('.btn').ruleCSS('border-radius', '10px');
+            $('h1, .test').ruleCSS({
+                color : 'red',
+                marginLeft : '20px'
+            });
+        });
+    });
+</script>
+</body>
+</html>
