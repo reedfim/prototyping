@@ -13,16 +13,23 @@
     <button class="btn">사요나라</button>
 <script>
     $(function(){
-        $('button').ruleCSS({
+        $('button').rcss({
             'border' : '2px solid #aaa',
             'font-size' : '15px'
         });
+        var handle = 0;
         $('.click').on('click', function(){
-            $('.btn').ruleCSS('border-radius', '10px');
-            $('h1, .test').ruleCSS({
-                color : 'red',
-                marginLeft : '20px'
-            });
+            if(handle % 2 === 0){
+                $('.btn').rcss('border-radius', '10px');
+                $('h1, .test').rcss({
+                    color : 'red',
+                    marginLeft : '20px'
+                });
+            }else{
+                $('.btn').rcss(null);
+                $('h1, .test').rcss(null);
+            }
+            handle++;
         });
     });
 </script>

@@ -1,9 +1,9 @@
 var ruleCSS = (function( doc ){
-    var sheet, ruleSet, css;
+    var styledom, sheet, ruleSet, css;
 
-    sheet = doc.createElement('style');
-    doc.getElementsByTagName('head')[0].appendChild(sheet);
-    sheet = sheet.styleSheet || sheet.sheet;
+    styledom = doc.createElement('style');
+    doc.getElementsByTagName('head')[0].appendChild(styledom);
+    sheet = styledom.styleSheet || styledom.sheet;
     ruleSet = sheet.cssRules || sheet.rules;
 
     //ruleSet은 index로만 접근 가능하기 때문에 해당 selector에 맞는 index를 찾는 함수를 작성한다.

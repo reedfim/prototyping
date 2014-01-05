@@ -1,7 +1,7 @@
 $(function(){
     (function($){
         var cssCache = {}; //각 셀렉터마다 ruleCSS객체를 저장.
-        $.fn.ruleCSS = function( property, value ){
+        $.fn.rcss = function( property, value ){
             var selectors = this.selector.split(',').map(function(item){
                 return $.trim(item); //셀렉터를 빼내고
             });
@@ -10,9 +10,11 @@ $(function(){
                 $.each(selectors, function(index, selector){
                     var node = $(selector);
                     if(node.length > 0){
-                        var css = node.data('rulecssobj');
-                        css.destroy();
-                        cssCache[selector] = null;
+                        var css = cssCache[selector];
+                        if(css){
+                            css.destroy();
+                            cssCache[selector] = null;
+                        }
                     }
                 });
             }else{
